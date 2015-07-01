@@ -78,7 +78,7 @@ CGRect screenFrame, menuFrame;
         
         // create score label
         self.scoreLabel = [SKLabelNode labelNodeWithText:@"0¥"];
-        self.scoreLabel.position = CGPointMake(menuFrame.origin.x + 100, CGRectGetMaxY(self.frame)-100);
+        self.scoreLabel.position = CGPointMake(CGRectGetMidX(menuFrame), CGRectGetMaxY(self.frame)-100);
         self.scoreLabel.fontColor = [UIColor whiteColor];
         self.scoreLabel.fontSize = 60;
         [self addChild:self.scoreLabel];
@@ -92,7 +92,7 @@ CGRect screenFrame, menuFrame;
         [self runAction:repeat];
         // ...and timer label
         self.timeLabel = [SKLabelNode labelNodeWithText:@"00:00"];
-        self.timeLabel.position = CGPointMake(menuFrame.origin.x + 100, CGRectGetMaxY(self.frame)-200);
+        self.timeLabel.position = CGPointMake(CGRectGetMidX(menuFrame), CGRectGetMaxY(self.frame)-200);
         self.timeLabel.fontColor = [UIColor whiteColor];
         self.timeLabel.fontSize = 50;
         [self addChild:self.timeLabel];
@@ -259,10 +259,7 @@ CGRect screenFrame, menuFrame;
                         UIColor *newBoxColor = [self generateNewBoxColor:node index:textureIndex];
                         
                         node.color = newBoxColor;
-                        NSLog(@"Added to box %i", index);
                     }
-                } else {
-                    NSLog(@"Could not be added!");
                 }
             }
             
