@@ -21,13 +21,13 @@
 		7C2E07741B44274C006DDA9B /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076C1B44274C006DDA9B /* circle@2x.png */; };
 		7C2E07751B44274C006DDA9B /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076D1B44274C006DDA9B /* rectangle.png */; };
 		7C2E07761B44274C006DDA9B /* rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076E1B44274C006DDA9B /* rectangle@2x.png */; };
-		7C2E07771B44274C006DDA9B /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076F1B44274C006DDA9B /* triangle.png */; };
-		7C2E07781B44274C006DDA9B /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07701B44274C006DDA9B /* triangle@2x.png */; };
 		7C2E077F1B443361006DDA9B /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E077E1B443361006DDA9B /* GameOverScene.m */; };
 		7C2E07831B4450D0006DDA9B /* sticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07811B4450D0006DDA9B /* sticks.png */; };
 		7C2E07841B4450D0006DDA9B /* sticks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07821B4450D0006DDA9B /* sticks@2x.png */; };
 		7C2E07871B4463C4006DDA9B /* BentoBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E07861B4463C4006DDA9B /* BentoBox.m */; };
 		7C2E078B1B44646A006DDA9B /* Boxes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E078A1B44646A006DDA9B /* Boxes.m */; };
+		7C2E078E1B448235006DDA9B /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E078C1B448235006DDA9B /* triangle.png */; };
+		7C2E078F1B448235006DDA9B /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E078D1B448235006DDA9B /* triangle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,6 @@
 		7C2E076C1B44274C006DDA9B /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		7C2E076D1B44274C006DDA9B /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
 		7C2E076E1B44274C006DDA9B /* rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectangle@2x.png"; sourceTree = "<group>"; };
-		7C2E076F1B44274C006DDA9B /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
-		7C2E07701B44274C006DDA9B /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
 		7C2E077D1B443361006DDA9B /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		7C2E077E1B443361006DDA9B /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		7C2E07801B443AB0006DDA9B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		7C2E07861B4463C4006DDA9B /* BentoBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BentoBox.m; sourceTree = "<group>"; };
 		7C2E07891B44646A006DDA9B /* Boxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boxes.h; sourceTree = "<group>"; };
 		7C2E078A1B44646A006DDA9B /* Boxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxes.m; sourceTree = "<group>"; };
+		7C2E078C1B448235006DDA9B /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
+		7C2E078D1B448235006DDA9B /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,14 +162,14 @@
 		7C2E07681B44273D006DDA9B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7C2E078C1B448235006DDA9B /* triangle.png */,
+				7C2E078D1B448235006DDA9B /* triangle@2x.png */,
 				7C2E07691B44274C006DDA9B /* box.png */,
 				7C2E076A1B44274C006DDA9B /* box@2x.png */,
 				7C2E076B1B44274C006DDA9B /* circle.png */,
 				7C2E076C1B44274C006DDA9B /* circle@2x.png */,
 				7C2E076D1B44274C006DDA9B /* rectangle.png */,
 				7C2E076E1B44274C006DDA9B /* rectangle@2x.png */,
-				7C2E076F1B44274C006DDA9B /* triangle.png */,
-				7C2E07701B44274C006DDA9B /* triangle@2x.png */,
 				7C2E07811B4450D0006DDA9B /* sticks.png */,
 				7C2E07821B4450D0006DDA9B /* sticks@2x.png */,
 			);
@@ -268,15 +268,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C2E07531B441D2A006DDA9B /* LaunchScreen.xib in Resources */,
+				7C2E078E1B448235006DDA9B /* triangle.png in Resources */,
 				7C2E07501B441D2A006DDA9B /* Images.xcassets in Resources */,
+				7C2E078F1B448235006DDA9B /* triangle@2x.png in Resources */,
 				7C2E07711B44274C006DDA9B /* box.png in Resources */,
 				7C2E07741B44274C006DDA9B /* circle@2x.png in Resources */,
 				7C2E07731B44274C006DDA9B /* circle.png in Resources */,
 				7C2E07841B4450D0006DDA9B /* sticks@2x.png in Resources */,
-				7C2E07781B44274C006DDA9B /* triangle@2x.png in Resources */,
 				7C2E07761B44274C006DDA9B /* rectangle@2x.png in Resources */,
 				7C2E07751B44274C006DDA9B /* rectangle.png in Resources */,
-				7C2E07771B44274C006DDA9B /* triangle.png in Resources */,
 				7C2E07721B44274C006DDA9B /* box@2x.png in Resources */,
 				7C2E07831B4450D0006DDA9B /* sticks.png in Resources */,
 				7C2E074E1B441D2A006DDA9B /* Main.storyboard in Resources */,
