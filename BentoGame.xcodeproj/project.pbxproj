@@ -16,6 +16,14 @@
 		7C2E07501B441D2A006DDA9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E074F1B441D2A006DDA9B /* Images.xcassets */; };
 		7C2E07531B441D2A006DDA9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07511B441D2A006DDA9B /* LaunchScreen.xib */; };
 		7C2E075F1B441D2B006DDA9B /* BentoGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E075E1B441D2B006DDA9B /* BentoGameTests.m */; };
+		7C2E07711B44274C006DDA9B /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07691B44274C006DDA9B /* box.png */; };
+		7C2E07721B44274C006DDA9B /* box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076A1B44274C006DDA9B /* box@2x.png */; };
+		7C2E07731B44274C006DDA9B /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076B1B44274C006DDA9B /* circle.png */; };
+		7C2E07741B44274C006DDA9B /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076C1B44274C006DDA9B /* circle@2x.png */; };
+		7C2E07751B44274C006DDA9B /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076D1B44274C006DDA9B /* rectangle.png */; };
+		7C2E07761B44274C006DDA9B /* rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076E1B44274C006DDA9B /* rectangle@2x.png */; };
+		7C2E07771B44274C006DDA9B /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076F1B44274C006DDA9B /* triangle.png */; };
+		7C2E07781B44274C006DDA9B /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07701B44274C006DDA9B /* triangle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		7C2E07581B441D2B006DDA9B /* BentoGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BentoGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2E075D1B441D2B006DDA9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C2E075E1B441D2B006DDA9B /* BentoGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BentoGameTests.m; sourceTree = "<group>"; };
+		7C2E07691B44274C006DDA9B /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		7C2E076A1B44274C006DDA9B /* box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box@2x.png"; sourceTree = "<group>"; };
+		7C2E076B1B44274C006DDA9B /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		7C2E076C1B44274C006DDA9B /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
+		7C2E076D1B44274C006DDA9B /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
+		7C2E076E1B44274C006DDA9B /* rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectangle@2x.png"; sourceTree = "<group>"; };
+		7C2E076F1B44274C006DDA9B /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
+		7C2E07701B44274C006DDA9B /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,7 @@
 				7C2E07491B441D2A006DDA9B /* GameViewController.h */,
 				7C2E074A1B441D2A006DDA9B /* GameViewController.m */,
 				7C2E074C1B441D2A006DDA9B /* Main.storyboard */,
+				7C2E07681B44273D006DDA9B /* images */,
 				7C2E074F1B441D2A006DDA9B /* Images.xcassets */,
 				7C2E07511B441D2A006DDA9B /* LaunchScreen.xib */,
 				7C2E073D1B441D2A006DDA9B /* Supporting Files */,
@@ -125,6 +142,21 @@
 				7C2E075D1B441D2B006DDA9B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C2E07681B44273D006DDA9B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7C2E07691B44274C006DDA9B /* box.png */,
+				7C2E076A1B44274C006DDA9B /* box@2x.png */,
+				7C2E076B1B44274C006DDA9B /* circle.png */,
+				7C2E076C1B44274C006DDA9B /* circle@2x.png */,
+				7C2E076D1B44274C006DDA9B /* rectangle.png */,
+				7C2E076E1B44274C006DDA9B /* rectangle@2x.png */,
+				7C2E076F1B44274C006DDA9B /* triangle.png */,
+				7C2E07701B44274C006DDA9B /* triangle@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +241,15 @@
 			files = (
 				7C2E07531B441D2A006DDA9B /* LaunchScreen.xib in Resources */,
 				7C2E07501B441D2A006DDA9B /* Images.xcassets in Resources */,
+				7C2E07711B44274C006DDA9B /* box.png in Resources */,
 				7C2E07481B441D2A006DDA9B /* GameScene.sks in Resources */,
+				7C2E07741B44274C006DDA9B /* circle@2x.png in Resources */,
+				7C2E07731B44274C006DDA9B /* circle.png in Resources */,
+				7C2E07781B44274C006DDA9B /* triangle@2x.png in Resources */,
+				7C2E07761B44274C006DDA9B /* rectangle@2x.png in Resources */,
+				7C2E07751B44274C006DDA9B /* rectangle.png in Resources */,
+				7C2E07771B44274C006DDA9B /* triangle.png in Resources */,
+				7C2E07721B44274C006DDA9B /* box@2x.png in Resources */,
 				7C2E074E1B441D2A006DDA9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
