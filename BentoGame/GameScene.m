@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "GameOverScene.h"
+#import "Boxes.h"
 
 static const uint32_t stickCategory = 0x1 << 0;
 static const uint32_t foodCategory = 0x1 << 1;
@@ -23,14 +24,28 @@ static NSString* foodCategoryName = @"food";
 @property (nonatomic) float time;
 @property (nonatomic) SKLabelNode *timeLabel;
 @property (nonatomic) float actualScreenWidth;
+@property (nonatomic) Boxes *bentoBoxes;
+@property (nonatomic, strong) NSArray * hitTextures;
 @end
 
 @implementation GameScene
 
 float stickY = 100;
+-(NSArray *)hitTextures{
+    if (_hitTextures == nil){
+        SKTexture *hit1 = [SKTexture textureWithImageNamed:@"circle"];
+        SKTexture *hit2 = [SKTexture textureWithImageNamed:@"triangle"];
+        SKTexture *hit3 = [SKTexture textureWithImageNamed:@"rectangle"];
+        
+        _hitTextures = @[hit1, hit2, hit3];
+    }
+    return _hitTextures;
+}
 
 -(id)initWithSize:(CGSize)size {
     if (self == [super initWithSize:size]) {
+        
+        self.bentoBoxes = [[Boxes alloc]init];
         
         self.actualScreenWidth = size.width * 2/3;
         self.physicsWorld.gravity = CGVectorMake(0.0f, 0.0f);
@@ -96,18 +111,20 @@ float stickY = 100;
 }
 
 -(void)stick:(SKSpriteNode *)stick didCollideWithFood:(SKSpriteNode *)foodItem {
-    NSLog(@"kollidiert");
+    int textureIndex = (int)[self.hitTextures indexOfObject:foodItem.texture];
+    BOOL filledBox = [self.bentoBoxes addFood:textureIndex];
+    if (filledBox) {
+        [self updateScore:1100];
+    }
+    
     [foodItem removeFromParent];
 }
 
 -(void)addFood {
     
-    NSArray *foodObjects = [NSArray arrayWithObjects:@"circle", @"rectangle", @"triangle", nil];
-    int randomVal = arc4random() % 3;
-    
-    
-    // Create sprite
-    SKSpriteNode *foodItem = [SKSpriteNode spriteNodeWithImageNamed:foodObjects[randomVal]];
+    int randomVal = arc4random() % [self.hitTextures count];
+    SKTexture* randomTexture = self.hitTextures[randomVal];
+    SKSpriteNode* foodItem = [SKSpriteNode spriteNodeWithTexture:randomTexture];
     
     // position
     int minX = foodItem.size.width / 2;
@@ -165,6 +182,12 @@ float stickY = 100;
 -(void)updateScore:(float)difference{
     self.score += difference;
     self.scoreLabel.text = [NSString stringWithFormat:@"%.f¥", self.score];
+    
+    if (self.score < 0) {
+        self.scoreLabel.fontColor = [UIColor redColor];
+    } else {
+        self.scoreLabel.fontColor = [UIColor whiteColor];
+    }
     
     /*if ((self.score < -600) || (self.time >= 120.0)) {
         BOOL gameWon = (self.score < -600) ? NO : YES;

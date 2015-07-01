@@ -26,6 +26,8 @@
 		7C2E077F1B443361006DDA9B /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E077E1B443361006DDA9B /* GameOverScene.m */; };
 		7C2E07831B4450D0006DDA9B /* sticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07811B4450D0006DDA9B /* sticks.png */; };
 		7C2E07841B4450D0006DDA9B /* sticks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07821B4450D0006DDA9B /* sticks@2x.png */; };
+		7C2E07871B4463C4006DDA9B /* BentoBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E07861B4463C4006DDA9B /* BentoBox.m */; };
+		7C2E078B1B44646A006DDA9B /* Boxes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E078A1B44646A006DDA9B /* Boxes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		7C2E07801B443AB0006DDA9B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		7C2E07811B4450D0006DDA9B /* sticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticks.png; sourceTree = "<group>"; };
 		7C2E07821B4450D0006DDA9B /* sticks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticks@2x.png"; sourceTree = "<group>"; };
+		7C2E07851B4463C4006DDA9B /* BentoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BentoBox.h; path = Model/BentoBox.h; sourceTree = "<group>"; };
+		7C2E07861B4463C4006DDA9B /* BentoBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BentoBox.m; path = Model/BentoBox.m; sourceTree = "<group>"; };
+		7C2E07891B44646A006DDA9B /* Boxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boxes.h; path = Model/Boxes.h; sourceTree = "<group>"; };
+		7C2E078A1B44646A006DDA9B /* Boxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boxes.m; path = Model/Boxes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +124,8 @@
 				7C2E07491B441D2A006DDA9B /* GameViewController.h */,
 				7C2E074A1B441D2A006DDA9B /* GameViewController.m */,
 				7C2E074C1B441D2A006DDA9B /* Main.storyboard */,
-				7C2E07681B44273D006DDA9B /* images */,
+				7C2E07881B4463DC006DDA9B /* Model */,
+				7C2E07681B44273D006DDA9B /* Images */,
 				7C2E074F1B441D2A006DDA9B /* Images.xcassets */,
 				7C2E07511B441D2A006DDA9B /* LaunchScreen.xib */,
 				7C2E073D1B441D2A006DDA9B /* Supporting Files */,
@@ -152,7 +159,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7C2E07681B44273D006DDA9B /* images */ = {
+		7C2E07681B44273D006DDA9B /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				7C2E07691B44274C006DDA9B /* box.png */,
@@ -166,7 +173,18 @@
 				7C2E07811B4450D0006DDA9B /* sticks.png */,
 				7C2E07821B4450D0006DDA9B /* sticks@2x.png */,
 			);
-			name = images;
+			name = Images;
+			sourceTree = "<group>";
+		};
+		7C2E07881B4463DC006DDA9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C2E07891B44646A006DDA9B /* Boxes.h */,
+				7C2E078A1B44646A006DDA9B /* Boxes.m */,
+				7C2E07851B4463C4006DDA9B /* BentoBox.h */,
+				7C2E07861B4463C4006DDA9B /* BentoBox.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,10 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2E078B1B44646A006DDA9B /* Boxes.m in Sources */,
 				7C2E077F1B443361006DDA9B /* GameOverScene.m in Sources */,
 				7C2E074B1B441D2A006DDA9B /* GameViewController.m in Sources */,
 				7C2E07431B441D2A006DDA9B /* AppDelegate.m in Sources */,
 				7C2E07461B441D2A006DDA9B /* GameScene.m in Sources */,
+				7C2E07871B4463C4006DDA9B /* BentoBox.m in Sources */,
 				7C2E07401B441D2A006DDA9B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
