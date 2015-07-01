@@ -167,8 +167,9 @@ CGRect screenFrame, menuFrame;
     SKSpriteNode* foodItem = [SKSpriteNode spriteNodeWithTexture:randomTexture];
     
     // position
-    int minX = foodItem.size.width / 2;
-    int maxX = screenFrame.size.width - foodItem.size.width / 2;
+    int padding = 30;
+    int minX = foodItem.size.width / 2 + padding;
+    int maxX = screenFrame.size.width - foodItem.size.width / 2 - padding;
     int actualX = (arc4random() % (maxX - minX)) + minX;
     
     foodItem.position = CGPointMake(actualX, self.frame.size.height + foodItem.size.height/2);
