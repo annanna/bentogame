@@ -69,10 +69,10 @@
 		7C2E07801B443AB0006DDA9B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		7C2E07811B4450D0006DDA9B /* sticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticks.png; sourceTree = "<group>"; };
 		7C2E07821B4450D0006DDA9B /* sticks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticks@2x.png"; sourceTree = "<group>"; };
-		7C2E07851B4463C4006DDA9B /* BentoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BentoBox.h; path = Model/BentoBox.h; sourceTree = "<group>"; };
-		7C2E07861B4463C4006DDA9B /* BentoBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BentoBox.m; path = Model/BentoBox.m; sourceTree = "<group>"; };
-		7C2E07891B44646A006DDA9B /* Boxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boxes.h; path = Model/Boxes.h; sourceTree = "<group>"; };
-		7C2E078A1B44646A006DDA9B /* Boxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Boxes.m; path = Model/Boxes.m; sourceTree = "<group>"; };
+		7C2E07851B4463C4006DDA9B /* BentoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BentoBox.h; sourceTree = "<group>"; };
+		7C2E07861B4463C4006DDA9B /* BentoBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BentoBox.m; sourceTree = "<group>"; };
+		7C2E07891B44646A006DDA9B /* Boxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boxes.h; sourceTree = "<group>"; };
+		7C2E078A1B44646A006DDA9B /* Boxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +117,12 @@
 			children = (
 				7C2E07411B441D2A006DDA9B /* AppDelegate.h */,
 				7C2E07421B441D2A006DDA9B /* AppDelegate.m */,
+				7C2E07491B441D2A006DDA9B /* GameViewController.h */,
+				7C2E074A1B441D2A006DDA9B /* GameViewController.m */,
 				7C2E07441B441D2A006DDA9B /* GameScene.h */,
 				7C2E07451B441D2A006DDA9B /* GameScene.m */,
 				7C2E077D1B443361006DDA9B /* GameOverScene.h */,
 				7C2E077E1B443361006DDA9B /* GameOverScene.m */,
-				7C2E07491B441D2A006DDA9B /* GameViewController.h */,
-				7C2E074A1B441D2A006DDA9B /* GameViewController.m */,
 				7C2E074C1B441D2A006DDA9B /* Main.storyboard */,
 				7C2E07881B4463DC006DDA9B /* Model */,
 				7C2E07681B44273D006DDA9B /* Images */,
@@ -139,7 +139,7 @@
 				7C2E073E1B441D2A006DDA9B /* Info.plist */,
 				7C2E073F1B441D2A006DDA9B /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7C2E075B1B441D2B006DDA9B /* BentoGameTests */ = {
@@ -156,7 +156,7 @@
 			children = (
 				7C2E075D1B441D2B006DDA9B /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7C2E07681B44273D006DDA9B /* Images */ = {
@@ -173,7 +173,7 @@
 				7C2E07811B4450D0006DDA9B /* sticks.png */,
 				7C2E07821B4450D0006DDA9B /* sticks@2x.png */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		7C2E07881B4463DC006DDA9B /* Model */ = {
@@ -184,7 +184,7 @@
 				7C2E07851B4463C4006DDA9B /* BentoBox.h */,
 				7C2E07861B4463C4006DDA9B /* BentoBox.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +332,7 @@
 				7C2E074D1B441D2A006DDA9B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		7C2E07511B441D2A006DDA9B /* LaunchScreen.xib */ = {
@@ -340,6 +341,7 @@
 				7C2E07521B441D2A006DDA9B /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -431,7 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = BentoGame/Info.plist;
+				INFOPLIST_FILE = "BentoGame/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -441,7 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = BentoGame/Info.plist;
+				INFOPLIST_FILE = "BentoGame/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -459,7 +461,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BentoGameTests/Info.plist;
+				INFOPLIST_FILE = "BentoGameTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BentoGame.app/BentoGame";
@@ -474,7 +476,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BentoGameTests/Info.plist;
+				INFOPLIST_FILE = "BentoGameTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BentoGame.app/BentoGame";
@@ -500,6 +502,7 @@
 				7C2E07641B441D2B006DDA9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C2E07651B441D2B006DDA9B /* Build configuration list for PBXNativeTarget "BentoGameTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +511,7 @@
 				7C2E07671B441D2B006DDA9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
