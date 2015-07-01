@@ -10,7 +10,6 @@
 		7C2E07401B441D2A006DDA9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E073F1B441D2A006DDA9B /* main.m */; };
 		7C2E07431B441D2A006DDA9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E07421B441D2A006DDA9B /* AppDelegate.m */; };
 		7C2E07461B441D2A006DDA9B /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E07451B441D2A006DDA9B /* GameScene.m */; };
-		7C2E07481B441D2A006DDA9B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07471B441D2A006DDA9B /* GameScene.sks */; };
 		7C2E074B1B441D2A006DDA9B /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E074A1B441D2A006DDA9B /* GameViewController.m */; };
 		7C2E074E1B441D2A006DDA9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E074C1B441D2A006DDA9B /* Main.storyboard */; };
 		7C2E07501B441D2A006DDA9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E074F1B441D2A006DDA9B /* Images.xcassets */; };
@@ -24,9 +23,9 @@
 		7C2E07761B44274C006DDA9B /* rectangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076E1B44274C006DDA9B /* rectangle@2x.png */; };
 		7C2E07771B44274C006DDA9B /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E076F1B44274C006DDA9B /* triangle.png */; };
 		7C2E07781B44274C006DDA9B /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07701B44274C006DDA9B /* triangle@2x.png */; };
-		7C2E077A1B442FB2006DDA9B /* sticks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07791B442FB2006DDA9B /* sticks@2x.png */; };
-		7C2E077C1B442FB9006DDA9B /* sticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E077B1B442FB9006DDA9B /* sticks.png */; };
 		7C2E077F1B443361006DDA9B /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E077E1B443361006DDA9B /* GameOverScene.m */; };
+		7C2E07831B4450D0006DDA9B /* sticks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07811B4450D0006DDA9B /* sticks.png */; };
+		7C2E07841B4450D0006DDA9B /* sticks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E07821B4450D0006DDA9B /* sticks@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		7C2E07421B441D2A006DDA9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7C2E07441B441D2A006DDA9B /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		7C2E07451B441D2A006DDA9B /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		7C2E07471B441D2A006DDA9B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		7C2E07491B441D2A006DDA9B /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		7C2E074A1B441D2A006DDA9B /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		7C2E074D1B441D2A006DDA9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,11 +62,11 @@
 		7C2E076E1B44274C006DDA9B /* rectangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rectangle@2x.png"; sourceTree = "<group>"; };
 		7C2E076F1B44274C006DDA9B /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
 		7C2E07701B44274C006DDA9B /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
-		7C2E07791B442FB2006DDA9B /* sticks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticks@2x.png"; sourceTree = "<group>"; };
-		7C2E077B1B442FB9006DDA9B /* sticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticks.png; sourceTree = "<group>"; };
 		7C2E077D1B443361006DDA9B /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		7C2E077E1B443361006DDA9B /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		7C2E07801B443AB0006DDA9B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		7C2E07811B4450D0006DDA9B /* sticks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticks.png; sourceTree = "<group>"; };
+		7C2E07821B4450D0006DDA9B /* sticks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticks@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 				7C2E07421B441D2A006DDA9B /* AppDelegate.m */,
 				7C2E07441B441D2A006DDA9B /* GameScene.h */,
 				7C2E07451B441D2A006DDA9B /* GameScene.m */,
-				7C2E07471B441D2A006DDA9B /* GameScene.sks */,
 				7C2E077D1B443361006DDA9B /* GameOverScene.h */,
 				7C2E077E1B443361006DDA9B /* GameOverScene.m */,
 				7C2E07491B441D2A006DDA9B /* GameViewController.h */,
@@ -164,10 +161,10 @@
 				7C2E076C1B44274C006DDA9B /* circle@2x.png */,
 				7C2E076D1B44274C006DDA9B /* rectangle.png */,
 				7C2E076E1B44274C006DDA9B /* rectangle@2x.png */,
-				7C2E077B1B442FB9006DDA9B /* sticks.png */,
-				7C2E07791B442FB2006DDA9B /* sticks@2x.png */,
 				7C2E076F1B44274C006DDA9B /* triangle.png */,
 				7C2E07701B44274C006DDA9B /* triangle@2x.png */,
+				7C2E07811B4450D0006DDA9B /* sticks.png */,
+				7C2E07821B4450D0006DDA9B /* sticks@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -255,16 +252,15 @@
 				7C2E07531B441D2A006DDA9B /* LaunchScreen.xib in Resources */,
 				7C2E07501B441D2A006DDA9B /* Images.xcassets in Resources */,
 				7C2E07711B44274C006DDA9B /* box.png in Resources */,
-				7C2E07481B441D2A006DDA9B /* GameScene.sks in Resources */,
 				7C2E07741B44274C006DDA9B /* circle@2x.png in Resources */,
-				7C2E077A1B442FB2006DDA9B /* sticks@2x.png in Resources */,
 				7C2E07731B44274C006DDA9B /* circle.png in Resources */,
+				7C2E07841B4450D0006DDA9B /* sticks@2x.png in Resources */,
 				7C2E07781B44274C006DDA9B /* triangle@2x.png in Resources */,
 				7C2E07761B44274C006DDA9B /* rectangle@2x.png in Resources */,
 				7C2E07751B44274C006DDA9B /* rectangle.png in Resources */,
-				7C2E077C1B442FB9006DDA9B /* sticks.png in Resources */,
 				7C2E07771B44274C006DDA9B /* triangle.png in Resources */,
 				7C2E07721B44274C006DDA9B /* box@2x.png in Resources */,
+				7C2E07831B4450D0006DDA9B /* sticks.png in Resources */,
 				7C2E074E1B441D2A006DDA9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

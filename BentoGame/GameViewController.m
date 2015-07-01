@@ -23,11 +23,32 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene sceneWithSize:skView.bounds.size];
+    GameScene *scene = [GameScene sceneWithSize:skView.frame.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
+    
+    CGRect menuFrame = CGRectMake(self.view.frame.size.width * 2/3, 0, self.view.frame.size.width * 1/3, self.view.frame.size.height);
+    UIView *menuOverlay = [[UIView alloc] initWithFrame:menuFrame];
+    menuOverlay.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+    [self.view addSubview:menuOverlay];
+    
+    
+    // create slider
+    CGRect frame = CGRectMake(0, CGRectGetMidY(menuOverlay.frame), menuOverlay.frame.size.width, 100);
+    UISlider *slider = [[UISlider alloc] initWithFrame:frame];
+    [slider setBackgroundColor:[UIColor clearColor]];
+    slider.minimumValue = 0.0;
+    slider.maximumValue = 1.0;
+    slider.value = 0.0;
+    slider.continuous = YES;
+    [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+    [menuOverlay addSubview:slider];
+}
+
+- (void)sliderChanged:(UISlider*)slider {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SliderChanged" object:slider];
 }
 
 - (BOOL)shouldAutorotate
