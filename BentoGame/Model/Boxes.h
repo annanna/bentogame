@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Boxes : NSObject
-- (BOOL)addFood:(int)foodItem;
+- (id)init:(int)boxCount;
+- (BOOL)addFood:(int)foodItem atIndex:(int)index;
+- (BOOL)boxAtIndexIsFull:(int)index;
 @property (nonatomic) int archivedBoxes;
 @end

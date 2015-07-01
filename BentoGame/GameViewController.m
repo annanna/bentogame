@@ -31,7 +31,7 @@
     
     CGRect menuFrame = CGRectMake(self.view.frame.size.width * 2/3, 0, self.view.frame.size.width * 1/3, self.view.frame.size.height);
     UIView *menuOverlay = [[UIView alloc] initWithFrame:menuFrame];
-    menuOverlay.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+    menuOverlay.backgroundColor = [UIColor colorWithRed:0.95 green:1 blue:0.84 alpha:0.5];
     [self.view addSubview:menuOverlay];
     
     

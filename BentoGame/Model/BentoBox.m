@@ -20,6 +20,7 @@
 - (BOOL) isFull
 {
     if (self.hasTriangle && self.hasCircle && self.hasRectangle) {
+        [self reset];
         return YES;
     }
     return NO;
@@ -49,6 +50,13 @@
             break;
     }
     return NO;
+}
+
+- (void) reset
+{
+    self.hasCircle = NO;
+    self.hasTriangle = NO;
+    self.hasRectangle = NO;
 }
 
 @end

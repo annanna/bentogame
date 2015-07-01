@@ -11,4 +11,5 @@
 @interface BentoBox : NSObject
 - (BOOL) addFood: (int)food;
 - (BOOL) isFull;
+- (void) reset;
 @end

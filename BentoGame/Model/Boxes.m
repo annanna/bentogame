@@ -16,17 +16,43 @@
 @implementation Boxes
 
 
-- (instancetype)init
+- (id)init:(int)boxCount
 {
     self = [super init];
     if (self) {
         self.boxes = [[NSMutableArray alloc]init];
+        for (int i=0; i<boxCount; i++) {
+            [self.boxes addObject:[[BentoBox alloc]init]];
+        }
+        
+        
         self.archivedBoxes = 0;
     }
     return self;
 }
 
-- (BOOL)addFood:(int)foodItem {
+- (BOOL)addFood:(int)foodItem atIndex:(int)index{
+    BentoBox* box = [self.boxes objectAtIndex:index];
+    BOOL wasInserted = [box addFood:foodItem];
+    return wasInserted;
+/*    if (wasInserted) {
+        BOOL boxIsFullNow = [box isFull];
+        if (boxIsFullNow) {
+            [self archiveBox:box];
+            return YES;
+        }
+    }
+    return NO; */
+}
+
+- (BOOL)boxAtIndexIsFull:(int)index {
+    BentoBox* box = [self.boxes objectAtIndex:index];
+    BOOL boxIsFullNow = [box isFull];
+    
+    return boxIsFullNow;
+}
+
+- (BOOL)addFoodSomewhere:(int)foodItem {
     for (BentoBox *box in self.boxes) {
         BOOL wasInserted = [box addFood:foodItem];
         if (wasInserted) {
@@ -38,16 +64,12 @@
             return NO;
         }
     }
-    BentoBox *newBox = [[BentoBox alloc]init];
-    [newBox addFood:foodItem];
-    [self.boxes addObject:newBox];
-    
     return false;
 }
 
 - (void)archiveBox:(BentoBox *)box {
     self.archivedBoxes++;
-    [self.boxes removeObject:box];
+    [box reset];
     NSLog(@"full box");
 }
 
