@@ -9,7 +9,12 @@
 #import "GameScene.h"
 #import "GameOverScene.h"
 
-@interface GameScene ()
+static const uint32_t stickCategory = 0x1 << 0;
+static const uint32_t foodCategory = 0x1 << 1;
+static NSString* stickCategoryName = @"stick";
+static NSString* foodCategoryName = @"food";
+
+@interface GameScene () <SKPhysicsContactDelegate>
 @property (nonatomic) SKSpriteNode *sticks;
 @property (nonatomic) float score;
 @property (nonatomic) SKLabelNode *scoreLabel;
@@ -28,12 +33,27 @@ float stickY = 100;
     if (self == [super initWithSize:size]) {
         
         self.actualScreenWidth = size.width * 2/3;
+        self.physicsWorld.gravity = CGVectorMake(0.0f, 0.0f);
+        self.physicsWorld.contactDelegate = self;
         
         // create sticks and place them in the bottom left corner
         self.sticks = [SKSpriteNode spriteNodeWithImageNamed:@"sticks"];
         self.sticks.position = CGPointMake(self.sticks.frame.size.width/2, stickY);
+        self.sticks.name = stickCategoryName;
+        self.sticks.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.sticks.size];
+        self.sticks.physicsBody.friction = 0.0f;
+        self.sticks.physicsBody.restitution = 1.0f;
+        self.sticks.physicsBody.linearDamping = 0.0f;
+        self.sticks.physicsBody.allowsRotation = NO;
+        self.sticks.physicsBody.dynamic = NO;
+        
+        self.sticks.physicsBody.categoryBitMask = stickCategory;
+        self.sticks.physicsBody.contactTestBitMask = foodCategory;
+        self.sticks.physicsBody.collisionBitMask = 0;
+        
         [self addChild:self.sticks];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveSticks:) name:@"SliderChanged" object:nil];
+        
         
         // create score label
         self.scoreLabel = [SKLabelNode labelNodeWithText:@"0¥"];
@@ -59,8 +79,25 @@ float stickY = 100;
     return self;
 }
 
--(void)didMoveToView:(SKView *)view {
-    /* Setup your scene here */
+-(void)didBeginContact:(SKPhysicsContact*)contact {
+    SKPhysicsBody *firstBody, *secondBody;
+    
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    } else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+    if ((firstBody.categoryBitMask & stickCategory) != 0 && (secondBody.categoryBitMask & foodCategory) != 0) {
+        [self stick:(SKSpriteNode *) firstBody.node didCollideWithFood:(SKSpriteNode *) secondBody.node];
+    }
+}
+
+-(void)stick:(SKSpriteNode *)stick didCollideWithFood:(SKSpriteNode *)foodItem {
+    NSLog(@"kollidiert");
+    [foodItem removeFromParent];
 }
 
 -(void)addFood {
@@ -78,6 +115,13 @@ float stickY = 100;
     int actualX = (arc4random() % (maxX - minX)) + minX;
     
     foodItem.position = CGPointMake(actualX, self.frame.size.height + foodItem.size.height/2);
+    foodItem.name = foodCategoryName;
+    foodItem.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:foodItem.size];
+    foodItem.physicsBody.dynamic = YES;
+    foodItem.physicsBody.categoryBitMask = foodCategory;
+    foodItem.physicsBody.contactTestBitMask = stickCategory;
+    foodItem.physicsBody.collisionBitMask = 0;
+    
     [self addChild:foodItem];
     
     
