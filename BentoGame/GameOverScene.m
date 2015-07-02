@@ -15,11 +15,9 @@
     self = [super initWithSize:size];
     
     if (self) {
-        float centerPoint = self.frame.size.width * 2/3 / 2;
-        
         SKLabelNode *gameOverLabel = [SKLabelNode labelNodeWithText:@"Game Over"];
         gameOverLabel.fontSize = 42;
-        gameOverLabel.position = CGPointMake(centerPoint, CGRectGetMidY(self.frame));
+        gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         if (isWon) {
             gameOverLabel.text = @"Game Won";
         }
@@ -27,7 +25,7 @@
         
         SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithText:[NSString stringWithFormat: @"You %@ %.f¥!",((isWon?@"earned":@"lost")),score]];
         scoreLabel.fontSize = 30;
-        scoreLabel.position = CGPointMake(centerPoint, gameOverLabel.position.y - 150);
+        scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), gameOverLabel.position.y - 150);
         [self addChild:scoreLabel];
     }
     return self;
