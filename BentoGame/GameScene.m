@@ -27,9 +27,11 @@ static NSString* foodCategoryName = @"food";
 @property (nonatomic) float time;
 @property (nonatomic) SKLabelNode *timeLabel;
 @property (nonatomic) Boxes *bentoBoxes;
+@property (nonatomic) NSMutableArray* bentoBoxArrays;
 @property (nonatomic) NSArray * foodTextures;
 @property (nonatomic) SKSpriteNode* lastCaughtItem;
 @property (nonatomic) UIView* menuOverlay;
+@property (nonatomic) UISlider* stickSlider;
 @property (nonatomic) BOOL easyMode;
 @end
 
@@ -76,14 +78,14 @@ float stickY = 100;
     
     // create slider
     CGRect frame = CGRectMake(0, CGRectGetMidY(_menuOverlay.frame), _menuFrame.size.width, 100);
-    UISlider *slider = [[UISlider alloc] initWithFrame:frame];
-    [slider setBackgroundColor:[UIColor clearColor]];
-    slider.minimumValue = 0.0;
-    slider.maximumValue = 1.0;
-    slider.value = 0.0;
-    slider.continuous = YES;
-    [slider addTarget:self action:@selector(moveSticks:) forControlEvents:UIControlEventValueChanged];
-    [_menuOverlay addSubview:slider];
+    _stickSlider = [[UISlider alloc] initWithFrame:frame];
+    [_stickSlider setBackgroundColor:[UIColor clearColor]];
+    _stickSlider.minimumValue = 0.0;
+    _stickSlider.maximumValue = 1.0;
+    _stickSlider.value = 0.0;
+    _stickSlider.continuous = YES;
+    [_stickSlider addTarget:self action:@selector(moveSticks:) forControlEvents:UIControlEventValueChanged];
+    [_menuOverlay addSubview:_stickSlider];
 }
 
 - (void)createSticks {
@@ -104,7 +106,6 @@ float stickY = 100;
     self.sticks.physicsBody.collisionBitMask = 0;
     
     [self addChild:self.sticks];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moveSticks:) name:@"SliderChanged" object:nil];
 }
 
 - (void)createGameLabels {
@@ -149,7 +150,8 @@ float stickY = 100;
                              [NSValue valueWithCGPoint:CGPointMake(xRight, yBottom)], // lower right
                              nil];
     
-    const int numberOfBoxes = [boxPositions count];
+    const int numberOfBoxes = (int)[boxPositions count];
+    _bentoBoxArrays = [NSMutableArray array];
     
     for (int i=0; i<numberOfBoxes; i++) {
         SKSpriteNode *newBox = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(boxWidth, boxHeight)];
@@ -157,6 +159,7 @@ float stickY = 100;
         newBox.position = [positionVal CGPointValue];
         newBox.name = [NSString stringWithFormat:@"Box%i", i];
         [self addChild:newBox];
+        [_bentoBoxArrays addObject:newBox];
     }
     
     self.bentoBoxes = [[Boxes alloc] init:numberOfBoxes];
@@ -236,35 +239,27 @@ float stickY = 100;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-    NSArray *nodes = [self nodesAtPoint:location];
     
-    for (SKSpriteNode *node in nodes) {
-        if ([node.name hasPrefix:@"Box"]) {
-            
-            if (self.lastCaughtItem) {
+    if (!_easyMode) {
+        UITouch *touch = [touches anyObject];
+        CGPoint location = [touch locationInNode:self];
+        NSArray *nodes = [self nodesAtPoint:location];
+        
+        for (SKSpriteNode *node in nodes) {
+            if ([node.name hasPrefix:@"Box"]) {
                 
-                
-                NSString *indexString = [node.name substringWithRange:NSMakeRange(3,1)];
-                int index = (int)[indexString doubleValue];
-                
-                int textureIndex = (int)[self.foodTextures indexOfObject:self.lastCaughtItem.texture];
-                BOOL didAddFootItem = [self.bentoBoxes addFood:textureIndex atIndex:index];
-                
-                if (didAddFootItem) {
-                    [self.lastCaughtItem removeFromParent];
-                    self.lastCaughtItem = nil;
+                if (self.lastCaughtItem) {
+                    NSString *indexString = [node.name substringWithRange:NSMakeRange(3,1)];
+                    int boxIndex = (int)[indexString doubleValue];
                     
-                    BOOL boxIsFull = [self.bentoBoxes boxAtIndexIsFull:index];
-                    if (boxIsFull) {
-                        [self updateScore:1100];
-                        node.color = [UIColor blackColor];
-                        NSLog(@"Box %i was sold", index);
-                    } else {
-                        UIColor *newBoxColor = [self generateNewBoxColor:node index:textureIndex];
-                        
-                        node.color = newBoxColor;
+                    int foodIndex = (int)[self.foodTextures indexOfObject:self.lastCaughtItem.texture];
+                    BOOL didAddFootItem = [self.bentoBoxes addFood:foodIndex atIndex:boxIndex];
+                    
+                    if (didAddFootItem) {
+                        [self.lastCaughtItem removeFromParent];
+                        self.lastCaughtItem = nil;
+                        [self showInBox:boxIndex foodIndex:foodIndex];
+                        _stickSlider.userInteractionEnabled = YES;
                     }
                 }
             }
@@ -291,15 +286,27 @@ float stickY = 100;
 }
 
 -(void)stick:(SKSpriteNode *)stick didCollideWithFood:(SKSpriteNode *)foodItem {
-    if (self.lastCaughtItem) {
-        [self.lastCaughtItem removeFromParent];
-        [self updateScore:-300];
-    }
-    
-    self.lastCaughtItem = foodItem;
-    [foodItem removeAllActions];
-}
 
+    if (self.easyMode) {
+        [foodItem removeAllActions];
+        int foodIndex = (int)[self.foodTextures indexOfObject:foodItem.texture];
+        int boxIndex = [self.bentoBoxes addFoodSomewhere:foodIndex];
+        if (boxIndex >= 0) {
+            [self showInBox:boxIndex foodIndex:foodIndex];
+        } else {
+            NSLog(@"all boxes are full");
+            
+        }
+        [foodItem removeFromParent];
+    } else {
+        _stickSlider.userInteractionEnabled = NO;
+    
+        if (!self.lastCaughtItem) {
+            [foodItem removeAllActions];
+            self.lastCaughtItem = foodItem;
+        }
+    }
+}
 
 // MARK: - Game Stuff
 
@@ -354,6 +361,21 @@ float stickY = 100;
     
     UIColor *newBoxColor = [UIColor colorWithRed:newRed green:newGreen blue:newBlue alpha:1];
     return newBoxColor;
+}
+
+
+- (void)showInBox:(int)boxIndex foodIndex:(int)foodIndex {
+    
+    SKSpriteNode* box = [_bentoBoxArrays objectAtIndex:boxIndex];
+    BOOL boxIsFull = [self.bentoBoxes boxAtIndexIsFull:boxIndex];
+    if (boxIsFull) {
+        [self updateScore:1100];
+        box.color = [UIColor blackColor];
+        NSLog(@"Box %i was sold", boxIndex);
+    } else {
+        UIColor *newBoxColor = [self generateNewBoxColor:box index:foodIndex];
+        box.color = newBoxColor;
+    }
 }
 
 @end

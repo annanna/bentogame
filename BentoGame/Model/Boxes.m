@@ -35,14 +35,6 @@
     BentoBox* box = [self.boxes objectAtIndex:index];
     BOOL wasInserted = [box addFood:foodItem];
     return wasInserted;
-/*    if (wasInserted) {
-        BOOL boxIsFullNow = [box isFull];
-        if (boxIsFullNow) {
-            [self archiveBox:box];
-            return YES;
-        }
-    }
-    return NO; */
 }
 
 - (BOOL)boxAtIndexIsFull:(int)index {
@@ -52,6 +44,19 @@
     return boxIsFullNow;
 }
 
+- (int)addFoodSomewhere:(int)foodItem {
+    
+    for (int i=0; i<_boxes.count; i++) {
+        BentoBox* box = _boxes[i];
+        BOOL wasInserted = [box addFood:foodItem];
+        if (wasInserted) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+/*
 - (BOOL)addFoodSomewhere:(int)foodItem {
     for (BentoBox *box in self.boxes) {
         BOOL wasInserted = [box addFood:foodItem];
@@ -66,7 +71,7 @@
     }
     return false;
 }
-
+*/
 - (void)archiveBox:(BentoBox *)box {
     self.archivedBoxes++;
     [box reset];
