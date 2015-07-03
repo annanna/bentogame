@@ -30,6 +30,7 @@ static NSString* foodCategoryName = @"food";
 @property (nonatomic) NSArray * foodTextures;
 @property (nonatomic) SKSpriteNode* lastCaughtItem;
 @property (nonatomic) UIView* menuOverlay;
+@property (nonatomic) BOOL easyMode;
 @end
 
 @implementation GameScene
@@ -48,13 +49,15 @@ float stickY = 100;
 
 // MARK: - Scene Setup
 
--(id)initWithSize:(CGSize)size {
+-(id)initWithSize:(CGSize)size inEasyMode:(BOOL)easy {
     if (self == [super initWithSize:size]) {
+        
+        _easyMode = easy;
         
         float screenWidth = size.width;
         float screenHeight = size.height;
-        self.gameFrame = CGRectMake(0, 0, screenWidth*2/3, screenHeight);
-        self.menuFrame = CGRectMake(screenWidth*2/3, 0, screenWidth*1/3, screenHeight);
+        _gameFrame = CGRectMake(0, 0, screenWidth*2/3, screenHeight);
+        _menuFrame = CGRectMake(screenWidth*2/3, 0, screenWidth*1/3, screenHeight);
         
         self.physicsWorld.gravity = CGVectorMake(0.0f, 0.0f);
         self.physicsWorld.contactDelegate = self;
@@ -67,12 +70,12 @@ float stickY = 100;
 }
 
 - (void) didMoveToView:(SKView *)view {
-    self.menuOverlay = [[UIView alloc] initWithFrame:self.menuFrame];
-    self.menuOverlay.backgroundColor = [UIColor colorWithRed:0.95 green:1 blue:0.84 alpha:0.5];
-    [self.view addSubview:self.menuOverlay];
+    _menuOverlay = [[UIView alloc] initWithFrame:_menuFrame];
+    _menuOverlay.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0.8 alpha:0.1];
+    [self.view addSubview:_menuOverlay];
     
     // create slider
-    CGRect frame = CGRectMake(0, CGRectGetMidY(self.menuOverlay.frame), self.menuFrame.size.width, 100);
+    CGRect frame = CGRectMake(0, CGRectGetMidY(_menuOverlay.frame), _menuFrame.size.width, 100);
     UISlider *slider = [[UISlider alloc] initWithFrame:frame];
     [slider setBackgroundColor:[UIColor clearColor]];
     slider.minimumValue = 0.0;
@@ -80,7 +83,7 @@ float stickY = 100;
     slider.value = 0.0;
     slider.continuous = YES;
     [slider addTarget:self action:@selector(moveSticks:) forControlEvents:UIControlEventValueChanged];
-    [self.menuOverlay addSubview:slider];
+    [_menuOverlay addSubview:slider];
 }
 
 - (void)createSticks {

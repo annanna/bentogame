@@ -28,6 +28,7 @@
 		7C2E078B1B44646A006DDA9B /* Boxes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E078A1B44646A006DDA9B /* Boxes.m */; };
 		7C2E078E1B448235006DDA9B /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E078C1B448235006DDA9B /* triangle.png */; };
 		7C2E078F1B448235006DDA9B /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E078D1B448235006DDA9B /* triangle@2x.png */; };
+		95F156441B46784900CBFD7B /* GameStartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F156431B46784900CBFD7B /* GameStartScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		7C2E078A1B44646A006DDA9B /* Boxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxes.m; sourceTree = "<group>"; };
 		7C2E078C1B448235006DDA9B /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
 		7C2E078D1B448235006DDA9B /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
+		95F156421B46784900CBFD7B /* GameStartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartScene.h; sourceTree = "<group>"; };
+		95F156431B46784900CBFD7B /* GameStartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStartScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				7C2E07421B441D2A006DDA9B /* AppDelegate.m */,
 				7C2E07491B441D2A006DDA9B /* GameViewController.h */,
 				7C2E074A1B441D2A006DDA9B /* GameViewController.m */,
+				95F156421B46784900CBFD7B /* GameStartScene.h */,
+				95F156431B46784900CBFD7B /* GameStartScene.m */,
 				7C2E07441B441D2A006DDA9B /* GameScene.h */,
 				7C2E07451B441D2A006DDA9B /* GameScene.m */,
 				7C2E077D1B443361006DDA9B /* GameOverScene.h */,
@@ -298,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C2E078B1B44646A006DDA9B /* Boxes.m in Sources */,
+				95F156441B46784900CBFD7B /* GameStartScene.m in Sources */,
 				7C2E077F1B443361006DDA9B /* GameOverScene.m in Sources */,
 				7C2E074B1B441D2A006DDA9B /* GameViewController.m in Sources */,
 				7C2E07431B441D2A006DDA9B /* AppDelegate.m in Sources */,

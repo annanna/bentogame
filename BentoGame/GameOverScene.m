@@ -7,7 +7,7 @@
 //
 
 #import "GameOverScene.h"
-#import "GameScene.h"
+#import "GameStartScene.h"
 
 @implementation GameOverScene
 
@@ -32,8 +32,8 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    GameScene *breakoutGameScene = [[GameScene alloc] initWithSize:self.size];
-    [self.view presentScene:breakoutGameScene];
+    GameStartScene *startGameScene = [GameStartScene sceneWithSize:self.size];
+    [self.view presentScene:startGameScene];
 }
 
 @end
