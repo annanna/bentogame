@@ -76,8 +76,8 @@ float stickY = 100;
     [self.view addSubview:_menuOverlay];
     
     // create slider
-    CGRect frame = CGRectMake(0, CGRectGetMidY(_menuOverlay.frame), _menuFrame.size.width, 100);
-    _stickSlider = [[UISlider alloc] initWithFrame:frame];
+    CGRect sliderFrame = CGRectMake(0, CGRectGetMidY(_menuFrame), _menuFrame.size.width, 100);
+    _stickSlider = [[UISlider alloc] initWithFrame:sliderFrame];
     [_stickSlider setBackgroundColor:[UIColor clearColor]];
     _stickSlider.minimumValue = 0.0;
     _stickSlider.maximumValue = 1.0;
@@ -85,6 +85,24 @@ float stickY = 100;
     _stickSlider.continuous = YES;
     [_stickSlider addTarget:self action:@selector(moveSticks:) forControlEvents:UIControlEventValueChanged];
     [_menuOverlay addSubview:_stickSlider];
+    
+    // create button for clearing stick content
+    if (!_easyMode) {
+        UIButton* clearButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [clearButton setTitle:@"Clear Stick-Content" forState:UIControlStateNormal];
+        [clearButton setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
+        [clearButton setBackgroundColor:[UIColor redColor]];
+        CGRect btnFrame = CGRectMake(_menuFrame.size.width/2 - 75, sliderFrame.size.width-50, 150, 50);
+        [clearButton setFrame:btnFrame];
+        [clearButton addTarget:self action:@selector(clearSticks) forControlEvents:UIControlEventTouchUpInside];
+        [_menuOverlay addSubview:clearButton];
+    }
+}
+
+- (void)clearSticks {
+    [_lastCaughtItem removeFromParent];
+    _lastCaughtItem = nil;
+    _stickSlider.userInteractionEnabled = YES;
 }
 
 - (void)createSticks {
