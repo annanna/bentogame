@@ -13,5 +13,4 @@
 - (BOOL)addFood:(int)foodItem atIndex:(int)index;
 - (int)addFoodSomewhere:(int)foodItem;
 - (BOOL)boxAtIndexIsFull:(int)index;
-@property (nonatomic) int archivedBoxes;
 @end

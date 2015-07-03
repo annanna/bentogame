@@ -24,9 +24,6 @@
         for (int i=0; i<boxCount; i++) {
             [self.boxes addObject:[[BentoBox alloc]init]];
         }
-        
-        
-        self.archivedBoxes = 0;
     }
     return self;
 }
@@ -55,28 +52,5 @@
     }
     return -1;
 }
-
-/*
-- (BOOL)addFoodSomewhere:(int)foodItem {
-    for (BentoBox *box in self.boxes) {
-        BOOL wasInserted = [box addFood:foodItem];
-        if (wasInserted) {
-            BOOL boxIsFullNow = [box isFull];
-            if (boxIsFullNow) {
-                [self archiveBox:box];
-                return YES;
-            }
-            return NO;
-        }
-    }
-    return false;
-}
-*/
-- (void)archiveBox:(BentoBox *)box {
-    self.archivedBoxes++;
-    [box reset];
-    NSLog(@"full box");
-}
-
 
 @end

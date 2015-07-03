@@ -9,7 +9,6 @@
 #import "GameScene.h"
 #import "GameOverScene.h"
 #import "Boxes.h"
-#import "GameViewController.h"
 
 static const uint32_t stickCategory = 0x1 << 0;
 static const uint32_t foodCategory = 0x1 << 1;
@@ -40,11 +39,11 @@ static NSString* foodCategoryName = @"food";
 float stickY = 100;
 -(NSArray *)foodTextures{
     if (_foodTextures == nil){
-        SKTexture *hit1 = [SKTexture textureWithImageNamed:@"circle"];
-        SKTexture *hit2 = [SKTexture textureWithImageNamed:@"triangle"];
-        SKTexture *hit3 = [SKTexture textureWithImageNamed:@"rectangle"];
+        SKTexture *shape1 = [SKTexture textureWithImageNamed:@"circle"];
+        SKTexture *shape2 = [SKTexture textureWithImageNamed:@"triangle"];
+        SKTexture *shape3 = [SKTexture textureWithImageNamed:@"rectangle"];
         
-        _foodTextures = @[hit1, hit2, hit3];
+        _foodTextures = @[shape1, shape2, shape3];
     }
     return _foodTextures;
 }
@@ -168,7 +167,6 @@ float stickY = 100;
     int randomVal = arc4random() % [self.foodTextures count];
     SKTexture* randomTexture = self.foodTextures[randomVal];
     SKSpriteNode* foodItem = [SKSpriteNode spriteNodeWithTexture:randomTexture];
-    
     // position
     int padding = 30;
     int minX = foodItem.size.width / 2 + padding;
@@ -331,7 +329,6 @@ float stickY = 100;
         boxIndex = [_bentoBoxes addFoodSomewhere:foodIndex];
         if (boxIndex >= 0) {
             didAddFoodItem = YES;
-            //[self showInBox:boxIndex foodIndex:foodIndex];
         } else {
             NSLog(@"all boxes are full");
         }
