@@ -19,7 +19,7 @@
 
 - (BOOL) isFull
 {
-    if (self.hasTriangle && self.hasCircle && self.hasRectangle) {
+    if (_hasTriangle && _hasCircle && _hasRectangle) {
         [self reset];
         return YES;
     }
@@ -29,20 +29,20 @@
 - (BOOL) addFood: (int)food {
     switch (food) {
         case 0:
-            if (!self.hasCircle) {
-                self.hasCircle = YES;
+            if (!_hasCircle) {
+                _hasCircle = YES;
                 return YES;
             }
             break;
         case 1:
-            if (!self.hasTriangle) {
-                self.hasTriangle = YES;
+            if (!_hasTriangle) {
+                _hasTriangle = YES;
                 return YES;
             }
             break;
         case 2:
-            if (!self.hasRectangle) {
-                self.hasRectangle = YES;
+            if (!_hasRectangle) {
+                _hasRectangle = YES;
                 return YES;
             }
             break;
@@ -54,9 +54,9 @@
 
 - (void) reset
 {
-    self.hasCircle = NO;
-    self.hasTriangle = NO;
-    self.hasRectangle = NO;
+    _hasCircle = NO;
+    _hasTriangle = NO;
+    _hasRectangle = NO;
 }
 
 @end

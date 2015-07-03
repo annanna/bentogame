@@ -9,5 +9,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GameOverScene : SKScene
--(id)initWithSize:(CGSize)size playerWon:(BOOL)isWon withScore:(float)score;
+-(instancetype)initWithSize:(CGSize)size playerWon:(BOOL)isWon withScore:(float)score;
 @end

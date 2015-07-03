@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Boxes : NSObject
-- (id)init:(int)boxCount;
+- (instancetype)init:(int)boxCount;
 - (BOOL)addFood:(int)foodItem atIndex:(int)index;
 - (int)addFoodSomewhere:(int)foodItem;
 - (BOOL)boxAtIndexIsFull:(int)index;

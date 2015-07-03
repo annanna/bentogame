@@ -11,7 +11,7 @@
 
 @implementation GameStartScene
 
--(id)initWithSize:(CGSize)size {
+-(instancetype)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     
     if (self) {

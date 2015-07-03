@@ -11,7 +11,7 @@
 
 @implementation GameOverScene
 
--(id)initWithSize:(CGSize)size playerWon:(BOOL)isWon withScore:(float)score {
+-(instancetype)initWithSize:(CGSize)size playerWon:(BOOL)isWon withScore:(float)score {
     self = [super initWithSize:size];
     
     if (self) {

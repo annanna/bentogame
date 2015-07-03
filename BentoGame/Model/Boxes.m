@@ -16,7 +16,7 @@
 @implementation Boxes
 
 
-- (id)init:(int)boxCount
+- (instancetype)init:(int)boxCount
 {
     self = [super init];
     if (self) {
